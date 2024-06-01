@@ -1,20 +1,17 @@
 from django.shortcuts import render
 
 
-
-
-
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import ast
 
 @csrf_exempt
 def calculate_expression(request):
-    print(request)
+    #print(request)
     if request.method == 'POST':
         data = ast.literal_eval(request.body.decode("utf-8"))
         expression = data.get('expression')
-        print(expression)
+        #print(expression)
         if not expression:
             return JsonResponse({'error': 'Expression is required'}, status=400)
         try:
