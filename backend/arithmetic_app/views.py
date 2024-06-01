@@ -13,7 +13,6 @@ def calculate_expression(request):
     print(request)
     if request.method == 'POST':
         data = ast.literal_eval(request.body.decode("utf-8"))
-        
         expression = data.get('expression')
         print(expression)
         if not expression:
